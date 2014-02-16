@@ -33,9 +33,10 @@ class Phpbrew < Formula
     init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix)
 
     prefix.install resource('sh')
+    mv prefix + "phpbrew.sh", prefix + "bashrc"
 
     phpbrew_main = prefix + "phpbrew"
-    phpbrew_main.write("#!/usr/bin/env bash\n\nsource " + prefix + "/init\nsource " + prefix + "/phpbrew.sh")
+    phpbrew_main.write("#!/usr/bin/env bash\n\nsource " + prefix + "/init\nsource " + prefix + "/bashrc")
 
     puts "\033[00;32m"
     puts "##################################"
