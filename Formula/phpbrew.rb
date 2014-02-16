@@ -6,7 +6,6 @@ class Phpbrew < Formula
   sha1 "9abf16aae03978c4179aff60942edd558313fda7"
   version "1.13.0"
 
-  depends_on "install"
   depends_on "automake"
   depends_on "autoconf"
   depends_on "curl"
@@ -23,5 +22,6 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
+    bin.install "phpbrew"
   end
 end
