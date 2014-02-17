@@ -42,7 +42,7 @@ class Phpbrew < Formula
     chmod 0755, bin + "phpbrew"
 
     init = prefix + "init"
-    init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix)
+    init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix + "\nexport PHPBREW_LOOKUP_PREFIX=" + HOMEBREW_PREFIX + "/Cellar:" + HOMEBREW_PREFIX)
 
     if build.devel?
       prefix.install resource('sh-devel')
