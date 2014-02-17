@@ -39,6 +39,7 @@ class Phpbrew < Formula
 
   def install
     bin.install "phpbrew"
+    chmod 0755, bin + "phpbrew"
 
     init = prefix + "init"
     init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix)
