@@ -6,20 +6,9 @@ class Phpbrew < Formula
   sha1 "9abf16aae03978c4179aff60942edd558313fda7"
   version "1.13.0"
 
-  devel do
-    url "https://raw.github.com/c9s/phpbrew/develop/phpbrew"
-    sha1 "a8c7efafdeb7379a9a7b346897c9f8269d64b560"
-    version "1.13.0-devel"
-  end
-
   resource 'sh' do
     url "https://raw.github.com/c9s/phpbrew/master/phpbrew.sh"
     sha1 "55f6a8c502195fcf882e2fa39113e33d3b99f0af"
-  end
-
-  resource 'sh-devel' do
-    url "https://raw.github.com/c9s/phpbrew/develop/phpbrew.sh"
-    sha1 "cdd4cc7c50218dcae01c8dd237c9b71f9d5febf7"
   end
 
   depends_on "automake"
@@ -44,11 +33,7 @@ class Phpbrew < Formula
     init = prefix + "init"
     init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix + "\nexport PHPBREW_LOOKUP_PREFIX=" + HOMEBREW_PREFIX + "/Cellar:" + HOMEBREW_PREFIX)
 
-    if build.devel?
-      prefix.install resource('sh-devel')
-    else
-      prefix.install resource('sh')
-    end
+    prefix.install resource('sh')
     mv prefix + "phpbrew.sh", prefix + "bashrc"
 
     phpbrew_main = prefix + "phpbrew"
