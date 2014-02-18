@@ -3,8 +3,8 @@ require "formula"
 class Phpbrew < Formula
   homepage "https://github.com/c9s/phpbrew"
   url "https://raw.github.com/c9s/phpbrew/master/phpbrew"
-  sha1 "9abf16aae03978c4179aff60942edd558313fda7"
-  version "1.13.0"
+  sha1 "c8895d483c0141fd22caf27b1bed32f1b0003628"
+  version "1.13.1"
 
   resource 'sh' do
     url "https://raw.github.com/c9s/phpbrew/master/phpbrew.sh"
