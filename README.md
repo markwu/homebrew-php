@@ -16,12 +16,12 @@ Install
 $ brew install phpbrew
 ```
 
-Then do what's told while installing for immediat use
+Then do what's told while installing for immediate use
 
 ```bash
 $ source $(brew --prefix)/opt/phpbrew/phpbrew
 ```
 
-Add the line to your bashrc/zshrc for future usage.
+Add this line to your bashrc/zshrc for future usage.
 
 Then you're ready!
