@@ -30,7 +30,7 @@ class Phpbrew < Formula
     libexec.install "phpbrew"
     chmod 0755, libexec + "phpbrew"
 
-    mkdir HOMEBREW_PREFIX + "phpbrew"
+    mkdir HOMEBREW_PREFIX + "phpbrew" unless (HOMEBREW_PREFIX + "phpbrew").exist?
 
     init = prefix + "init"
     init.write("export PHPBREW_HOME=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_ROOT=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}")
@@ -43,13 +43,15 @@ class Phpbrew < Formula
 
     phpbrew = bin + "phpbrew"
     phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew $*")
+  end
 
-    puts "\033[00;32m"
-    puts "##################################"
-    puts "phpbrew is now installed"
-    puts "To start using it, please run `source $(brew --prefix)/opt/phpbrew/phpbrew`"
-    puts "We also recommand you to add this command to your bash/zshrc"
-    puts "##################################"
-    puts "\033[0m"
+  def caveats; <<-EOS.undent
+    phpbrew is now installed!
+
+    To start using it, please run
+      `source $(brew --prefix)/opt/phpbrew/phpbrew`
+
+    We also recommand you to add this command to your bash/zshrc
+    EOS
   end
 end
