@@ -27,17 +27,20 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
-    bin.install "phpbrew"
-    chmod 0755, bin + "phpbrew"
+    libexec.install "phpbrew"
+    chmod 0755, libexec + "phpbrew"
 
     init = prefix + "init"
-    init.write("export PHPBREW_HOME=" + prefix + "\nexport PHPBREW_ROOT=" + prefix + "\nexport PHPBREW_LOOKUP_PREFIX=" + HOMEBREW_PREFIX + "/Cellar:" + HOMEBREW_PREFIX)
+    init.write("export PHPBREW_HOME=#{prefix}\nexport PHPBREW_ROOT=#{prefix}\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}")
 
     prefix.install resource('sh')
     mv prefix + "phpbrew.sh", prefix + "bashrc"
 
     phpbrew_main = prefix + "phpbrew"
-    phpbrew_main.write("#!/usr/bin/env bash\n\nsource " + prefix + "/init\nsource " + prefix + "/bashrc")
+    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{prefix}/init\nsource #{prefix}/bashrc")
+
+    phpbrew = bin + "phpbrew"
+    phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew")
 
     puts "\033[00;32m"
     puts "##################################"
