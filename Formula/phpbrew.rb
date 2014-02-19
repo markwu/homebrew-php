@@ -37,7 +37,7 @@ class Phpbrew < Formula
     mv prefix + "phpbrew.sh", prefix + "bashrc"
 
     phpbrew_main = prefix + "phpbrew"
-    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{prefix}/init\nsource #{prefix}/bashrc")
+    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{prefix}/init\nsource #{prefix}/bashrc\n\nexport PATH=$PHPBREW_BIN:$PATH")
 
     phpbrew = bin + "phpbrew"
     phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew $*")
