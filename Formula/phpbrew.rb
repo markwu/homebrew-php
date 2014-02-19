@@ -40,7 +40,7 @@ class Phpbrew < Formula
     phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{prefix}/init\nsource #{prefix}/bashrc")
 
     phpbrew = bin + "phpbrew"
-    phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew")
+    phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew $*")
 
     puts "\033[00;32m"
     puts "##################################"
