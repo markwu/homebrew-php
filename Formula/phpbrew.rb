@@ -30,8 +30,10 @@ class Phpbrew < Formula
     libexec.install "phpbrew"
     chmod 0755, libexec + "phpbrew"
 
+    mkdir HOMEBREW_PREFIX + "phpbrew"
+
     init = prefix + "init"
-    init.write("export PHPBREW_HOME=#{prefix}\nexport PHPBREW_ROOT=#{prefix}\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}")
+    init.write("export PHPBREW_HOME=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_ROOT=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}")
 
     prefix.install resource('sh')
     mv prefix + "phpbrew.sh", prefix + "bashrc"
