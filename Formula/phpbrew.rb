@@ -2,12 +2,12 @@ require "formula"
 
 class Phpbrew < Formula
   homepage "https://github.com/c9s/phpbrew"
-  url "https://raw.github.com/c9s/phpbrew/master/phpbrew"
+  url "https://github.com/c9s/phpbrew/blob/85be8723e24bb85039cd9bec982a222f173d20c8/phpbrew?raw=true"
   sha1 "c8895d483c0141fd22caf27b1bed32f1b0003628"
   version "1.13.1"
 
   resource 'sh' do
-    url "https://raw.github.com/c9s/phpbrew/master/phpbrew.sh"
+    url "https://raw.github.com/c9s/phpbrew/85be8723e24bb85039cd9bec982a222f173d20c8/phpbrew.sh"
     sha1 "55f6a8c502195fcf882e2fa39113e33d3b99f0af"
   end
 
