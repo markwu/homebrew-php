@@ -27,19 +27,23 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
+    external_dir = HOMEBREW_PREFIX + "phpbrew"
+
     libexec.install "phpbrew"
     chmod 0755, libexec + "phpbrew"
 
-    mkdir HOMEBREW_PREFIX + "phpbrew" unless (HOMEBREW_PREFIX + "phpbrew").exist?
+    mkdir external_dir unless external_dir.exist?
 
-    init = prefix + "init"
-    init.write("export PHPBREW_HOME=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_ROOT=#{HOMEBREW_PREFIX}/phpbrew\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}")
+    init = external_dir + "init"
+    init.write("export PHPBREW_HOME=#{external_dir}\nexport PHPBREW_ROOT=#{external_dir}\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}") unless init.exist?
 
-    prefix.install resource('sh')
-    mv prefix + "phpbrew.sh", prefix + "bashrc"
+    unless (prefix + "bashrc").exist?
+      external_dir.install resource('sh')
+      mv external_dir + "phpbrew.sh", prefix + "bashrc"
+    end
 
     phpbrew_main = prefix + "phpbrew"
-    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{prefix}/init\nsource #{prefix}/bashrc\n\nexport PATH=$PHPBREW_BIN:$PATH")
+    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{init}\nsource #{external_dir}/bashrc\n\nexport PATH=$PHPBREW_BIN:$PATH")
 
     phpbrew = bin + "phpbrew"
     phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew $*")
