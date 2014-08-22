@@ -31,6 +31,9 @@ class Phpbrew < Formula
   def caveats; <<-EOS.undent
     phpbrew is now installed!
 
+    Make sure icu4c is linked before using phpbrew. Run following command to relink.
+      `brew unlink icu4c && brew link icu4c --force`
+
     To start using it, please run
       `source $(brew --prefix)/opt/phpbrew/phpbrew`
 
