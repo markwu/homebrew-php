@@ -35,9 +35,10 @@ class Phpbrew < Formula
       `brew unlink icu4c && brew link icu4c --force`
 
     To start using it, please run
-      `source $(brew --prefix)/opt/phpbrew/phpbrew`
+      `phpbrew init`
 
-    We also recommand you to add this command to your bash/zshrc
+    And also add the following command to your bash/zshrc
+      `source ~/.phpbrew/bashrc`
     EOS
   end
 end
