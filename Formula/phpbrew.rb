@@ -1,15 +1,11 @@
 require "formula"
 
 class Phpbrew < Formula
-  homepage "https://github.com/c9s/phpbrew"
-  url "https://github.com/c9s/phpbrew/blob/85be8723e24bb85039cd9bec982a222f173d20c8/phpbrew?raw=true"
-  sha1 "c8895d483c0141fd22caf27b1bed32f1b0003628"
-  version "1.13.1"
-
-  resource 'sh' do
-    url "https://raw.github.com/c9s/phpbrew/85be8723e24bb85039cd9bec982a222f173d20c8/phpbrew.sh"
-    sha1 "55f6a8c502195fcf882e2fa39113e33d3b99f0af"
-  end
+  homepage "https://github.com/phpbrew/phpbrew"
+  head "https://github.com/phpbrew/phpbrew/blob/master/phpbrew?raw=true"
+  url "https://github.com/phpbrew/phpbrew/blob/1.13.2/phpbrew?raw=true"
+  sha1 "89a730ba23f255299bcfeba83da7297042079bab"
+  version "1.13.2"
 
   depends_on "automake"
   depends_on "autoconf"
@@ -27,26 +23,9 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
-    external_dir = HOMEBREW_PREFIX + "phpbrew"
-
-    libexec.install "phpbrew"
-    chmod 0755, libexec + "phpbrew"
-
-    mkdir external_dir unless external_dir.exist?
-
-    init = external_dir + "init"
-    init.write("export PHPBREW_HOME=#{external_dir}\nexport PHPBREW_ROOT=#{external_dir}\nexport PHPBREW_LOOKUP_PREFIX=#{HOMEBREW_PREFIX}/Cellar:#{HOMEBREW_PREFIX}") unless init.exist?
-
-    unless (prefix + "bashrc").exist?
-      external_dir.install resource('sh')
-      mv external_dir + "phpbrew.sh", prefix + "bashrc"
-    end
-
-    phpbrew_main = prefix + "phpbrew"
-    phpbrew_main.write("#!/usr/bin/env bash\n\nsource #{init}\nsource #{external_dir}/bashrc\n\nexport PATH=$PHPBREW_BIN:$PATH")
-
-    phpbrew = bin + "phpbrew"
-    phpbrew.write("#!/usr/bin/env bash\n\nphp #{libexec}/phpbrew $*")
+    system "chmod a+x phpbrew"
+    system "mkdir -p #{prefix}/bin"
+    system "cp phpbrew #{prefix}/bin"
   end
 
   def caveats; <<-EOS.undent
