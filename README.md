@@ -1,13 +1,13 @@
 # homebrew-phpbrew
 
-Homebrew formula for [phpbrew](https://github.com/c9s/phpbrew)!
+Homebrew formula for [phpbrew](https://github.com/phpbrew/phpbrew)!
 
 ## Setup
 
 Tap
 
 ```bash
-$ brew tap chadrien/homebrew-phpbrew
+$ brew tap markwu/homebrew-phpbrew
 ```
 
 Install
