@@ -18,10 +18,19 @@ $ brew install phpbrew
 
 Then do what's told while installing for immediate use
 
+Make sure icu4c is linked before using phpbrew. Run following command to relink.
 ```bash
-$ source $(brew --prefix)/opt/phpbrew/phpbrew
+$ brew unlink icu4c && brew link icu4c --force
 ```
 
-Add this line to your bashrc/zshrc for future usage.
+To start using it, please run
+```bash
+$ phpbrew init
+```
+
+And also add the following command to your bash/zshrc
+```bash
+$ source ~/.phpbrew/bashrc
+```
 
 Then you're ready!
