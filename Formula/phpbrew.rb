@@ -23,6 +23,7 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
+    system "brew unlink icu4c"
     system "brew link icu4c --force"
     system "chmod a+x phpbrew"
     system "mkdir -p #{prefix}/bin"
