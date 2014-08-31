@@ -8,8 +8,9 @@ class Composer < Formula
   version "1.0.0-alpha8"
 
   def install
-    bin.install "composer.phar" => "composer"
-    (bin/"composer").chmod 0755
+    libexec.install "composer.phar"
+    (libexec/"composer.phar").chmod 755
+    bin.install_symlink libexec/"composer.phar" => "composer"
   end
 
   def caveats; <<-EOS.undent
