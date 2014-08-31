@@ -10,6 +10,7 @@ class Composer < Formula
   def install
     system "mv composer.phar composer"
     system "chmod a+x composer"
+    system "chgrp staff composer"
     system "mkdir -p #{prefix}/bin"
     system "cp composer #{prefix}/bin"
   end
