@@ -23,9 +23,8 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
-    system "mkdir -p #{prefix}/bin"
-    system "cp phpbrew #{prefix}/bin/phpbrew"
-    system "chmod 755 #{prefix}/bin/phpbrew"
+    bin.install "phpbrew"
+    (bin/"phpbrew").chmod 0755
   end
 
   def caveats; <<-EOS.undent

@@ -8,9 +8,8 @@ class Composer < Formula
   version "1.0.0-alpha8"
 
   def install
-    system "mkdir -p #{prefix}/bin"
-    system "cp composer.phar #{prefix}/bin/composer"
-    system "chmod 755 #{prefix}/bin/composer"
+    bin.install "composer.phar" => "composer"
+    (bin/"composer").chmod 0755
   end
 
   def caveats; <<-EOS.undent
