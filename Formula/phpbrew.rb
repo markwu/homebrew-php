@@ -26,7 +26,7 @@ class Phpbrew < Formula
     system "mkdir -p #{prefix}/bin"
     system "cp phpbrew #{prefix}/bin/phpbrew"
     system "chmod a+x #{prefix}/bin/phpbrew"
-    system "chmod +w #{prefix}/bin/phpbrew"
+    system "chmod u+w #{prefix}/bin/phpbrew"
   end
 
   def caveats; <<-EOS.undent
