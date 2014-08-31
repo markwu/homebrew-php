@@ -1,6 +1,6 @@
 require "formula"
 
-class Phpbrew < Formula
+class Composer < Formula
   homepage "http://getcomposer.org"
   head "https://getcomposer.org/composer.phar"
   url "https://getcomposer.org/download/1.0.0-alpha8/composer.phar"
