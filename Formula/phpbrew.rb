@@ -23,8 +23,9 @@ class Phpbrew < Formula
   depends_on "libevent"
 
   def install
-    bin.install "phpbrew"
-    chmod 0755, bin + "phpbrew"
+    libexec.install "phpbrew"
+    (libexec/"phpbrew").chmod 0755
+    bin.install_symlink  libexec/"phpbrew"
   end
 
   def caveats; <<-EOS.undent
