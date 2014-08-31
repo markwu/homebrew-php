@@ -24,7 +24,7 @@ class Phpbrew < Formula
 
   def install
     bin.install "phpbrew"
-    (bin/"phpbrew").chmod 0755
+    chmod 0755, bin + "phpbrew"
   end
 
   def caveats; <<-EOS.undent
