@@ -10,8 +10,7 @@ class Composer < Formula
   def install
     system "mkdir -p #{prefix}/bin"
     system "cp composer.phar #{prefix}/bin/composer"
-    system "chmod a+x #{prefix}/bin/composer"
-    system "chmod u+w #{prefix}/bin/composer"
+    system "chmod 755 #{prefix}/bin/composer"
   end
 
   def caveats; <<-EOS.undent
