@@ -10,7 +10,7 @@ Tap
 $ brew tap markwu/homebrew-php
 ```
 
-I only support [phpbrew](https://github.com/phpbrew/phpbrew)! and [composer](http://getcomposer.org)! currently.
+Currently, I only support [phpbrew](https://github.com/phpbrew/phpbrew) and [composer](http://getcomposer.org).
 
 ```bash
 $ brew install phpbrew
