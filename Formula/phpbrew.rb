@@ -24,7 +24,7 @@ class Phpbrew < Formula
 
   def install
     system "chmod a+x phpbrew"
-    system "chgrp staff phpbrew"
+    system "chmod +w phpbrew"
     system "mkdir -p #{prefix}/bin"
     system "cp phpbrew #{prefix}/bin"
   end
