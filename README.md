@@ -1,6 +1,5 @@
 # homebrew-phpbrew
 
-B
 Homebrew formulas for my personal PHP development.
 
 ## Setup
