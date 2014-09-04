@@ -11,14 +11,15 @@ Tap
 $ brew tap markwu/homebrew-php
 ```
 
-Currently, I only support [phpbrew](https://github.com/phpbrew/phpbrew) and [composer](http://getcomposer.org).
+Currently, I only support [phpbrew](https://github.com/phpbrew/phpbrew), [composer](http://getcomposer.org) and [ctags-better-php](https://gist.github.com/complex857/9570127).
 
 ```bash
 $ brew install phpbrew
 $ brew install composer
+$ brew install ctags-better-php
 ```
 
-It supports phpbrew & composer's `self-update`, you can update them by
+It also supports phpbrew & composer's `self-update` command, you can update them by
 
 ```bash
 $ phpbrew self-update
