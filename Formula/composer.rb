@@ -17,7 +17,7 @@ class Composer < Formula
     composer is now installed!
 
     To verify your installation, please run
-      `composer --version`
+    $ composer --version
     EOS
   end
 end

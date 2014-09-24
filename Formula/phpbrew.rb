@@ -33,26 +33,26 @@ class Phpbrew < Formula
     phpbrew is now installed!
 
     Make sure icu4c is linked before using phpbrew. Run following command to relink.
-      `brew unlink icu4c && brew link icu4c --force`
+    $ brew unlink icu4c && brew link icu4c --force
 
-    To start using it, please run
-      `phpbrew init`
+    To start using it, please run:
+    $ phpbrew init
 
-    And also add the following command to your bash/zshrc
-      `source ~/.phpbrew/bashrc`
+    And also add the following command to your bash/zshrc:
+    `source ~/.phpbrew/bashrc`
 
     Now, you can brew your own php. Take php 5.5.17 for examples:
 
-    $phpbrew init
-    $phpbrew phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
-    $phpbrew switch 5.5.17
-    $phpbrew ext install gd
-    $phpbrew ext install opcache
+    $ phpbrew init
+    $ phpbrew phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
+    $ phpbrew switch 5.5.17
+    $ phpbrew ext install gd
+    $ phpbrew ext install opcache
 
-    By default, homebrew will download formula from bottle (A precompiled binaray library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after your upgrade your xcode. Try the following snippets
+    By default, homebrew will download formula from bottle (A precompiled binary library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after your upgrade your xcode. Try the following snippets.
 
-    $phpberw rm gd fontconfig freetype jpeg libpng libtiff xz
-    $phpbrew install gd --build-from-source
+    $ phpberw rm gd fontconfig freetype jpeg libpng libtiff xz
+    $ phpbrew install gd --build-from-source
     EOS
   end
 end
