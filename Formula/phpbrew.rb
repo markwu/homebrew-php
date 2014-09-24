@@ -7,20 +7,21 @@ class Phpbrew < Formula
   sha1 "364c9d8cc0fcecb89f272695444a9b4f9d0d199d"
   version "1.14.0"
 
-  depends_on "automake"
   depends_on "autoconf"
+  depends_on "automake"
   depends_on "curl"
-  depends_on "pcre"
-  depends_on "re2c"
-  depends_on "mhash"
-  depends_on "libtool"
-  depends_on "icu4c"
+  depends_on "gd"
   depends_on "gettext"
+  depends_on "gmp"
+  depends_on "icu4c"
   depends_on "jpeg"
+  depends_on "libevent"
+  depends_on "libtool"
   depends_on "libxml2"
   depends_on "mcrypt"
-  depends_on "gmp"
-  depends_on "libevent"
+  depends_on "mhash"
+  depends_on "pcre"
+  depends_on "re2c"
 
   def install
     libexec.install "phpbrew"
@@ -39,6 +40,19 @@ class Phpbrew < Formula
 
     And also add the following command to your bash/zshrc
       `source ~/.phpbrew/bashrc`
+
+    Now, you can brew your own php. Take php 5.5.17 for examples:
+
+    $phpbrew init
+    $phpbrew phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
+    $phpbrew switch 5.5.17
+    $phpbrew ext install gd
+    $phpbrew ext install opcache
+
+    By default, homebrew will download formula from bottle (A precompiled binaray library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after your upgrade your xcode. Try the following snippets
+
+    $phpberw rm gd fontconfig freetype jpeg libpng libtiff xz
+    $phpbrew install gd --build-from-source
     EOS
   end
 end
