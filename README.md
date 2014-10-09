@@ -37,7 +37,7 @@ And also add the following command to your bash/zshrc `source ~/.phpbrew/bashrc`
 Now, you can brew your own php. Take php 5.5.17 for examples:
 
 ```bash
-$ phpbrew phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
+$ phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
 $ phpbrew switch 5.5.17
 $ phpbrew ext install gd
 $ phpbrew ext install opcache
