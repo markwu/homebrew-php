@@ -4,7 +4,7 @@ class Phpbrew < Formula
   homepage "https://github.com/phpbrew/phpbrew"
   head "https://github.com/phpbrew/phpbrew/blob/master/phpbrew?raw=true"
   url "https://github.com/phpbrew/phpbrew/blob/1.16.6/phpbrew?raw=true"
-  sha1 "71ae228f337b63d403e2785f4ebbeb2848b939f9"
+  sha1 "88d5fdab2995db4d84d2a8a6c37ade081c404820"
   version "1.16.6"
 
   depends_on "autoconf"
