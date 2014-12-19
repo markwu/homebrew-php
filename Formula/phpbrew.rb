@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   homepage "https://github.com/phpbrew/phpbrew"
   head "https://github.com/phpbrew/phpbrew/blob/master/phpbrew?raw=true"
-  url "https://github.com/phpbrew/phpbrew/blob/1.18.1/phpbrew?raw=true"
-  sha1 "c81d2918a6a124914079ba2045b47ba3ea1742a8"
-  version "1.18.1"
+  url "https://github.com/phpbrew/phpbrew/blob/1.18.2/phpbrew?raw=true"
+  sha1 "ea33c6e21714dcf774ec2418c9fef0c69f2b3ba9"
+  version "1.18.2"
 
   depends_on "autoconf"
   depends_on "automake"
