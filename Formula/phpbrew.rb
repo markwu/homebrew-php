@@ -3,9 +3,6 @@ require "formula"
 class Phpbrew < Formula
   homepage "https://github.com/phpbrew/phpbrew"
   head "https://github.com/phpbrew/phpbrew/blob/master/phpbrew?raw=true"
-  url "https://github.com/phpbrew/phpbrew/blob/1.19.4/phpbrew?raw=true"
-  sha1 "810ba6f38e5675dd1864742e16d2f007f0adcdfa"
-  version "1.19.4"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -20,6 +17,7 @@ class Phpbrew < Formula
   depends_on "libxml2"
   depends_on "mcrypt"
   depends_on "mhash"
+  depends_on "openssl"
   depends_on "pcre"
   depends_on "re2c"
 
@@ -32,8 +30,10 @@ class Phpbrew < Formula
   def caveats; <<-EOS.undent
     phpbrew is now installed!
 
-    Make sure icu4c is linked before using phpbrew. Run following command to relink.
+    Make sure icu4c, openssl, libxml2 is linked before using phpbrew. Run following command to relink.
     $ brew unlink icu4c && brew link icu4c --force
+    $ brew unlink openssl && brew link openssl --force
+    $ brew unlink libxml2 && brew link libxml2 --force
 
     To start using it, please run:
     $ phpbrew init
