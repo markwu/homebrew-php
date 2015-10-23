@@ -44,12 +44,13 @@ class Phpbrew < Formula
     Now, you can brew your own php. Take php 5.5.17 for examples:
 
     $ phpbrew init
-    $ phpbrew install 5.5.17 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
-    $ phpbrew switch 5.5.17
+    $ phpbrew lookup-prefix homebrew
+    $ phpbrew install 5.6.13 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
+    $ phpbrew switch 5.6.13
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
 
-    By default, homebrew will download formula from bottle (A precompiled binary library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after your upgrade your xcode. Try the following snippets.
+    By default, homebrew will download formula from bottle (A precompiled binary library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after upgrading your xcode. Try the following snippets.
 
     $ phpberw rm gd fontconfig freetype jpeg libpng libtiff xz
     $ phpbrew install gd --build-from-source
