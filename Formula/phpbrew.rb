@@ -11,6 +11,7 @@ class Phpbrew < Formula
   depends_on "gettext"
   depends_on "gmp"
   depends_on "icu4c"
+  depends_on "bison"
   depends_on "jpeg"
   depends_on "libevent"
   depends_on "libtool"
@@ -30,8 +31,9 @@ class Phpbrew < Formula
   def caveats; <<-EOS.undent
     phpbrew is now installed!
 
-    Make sure icu4c, openssl, libxml2 is linked before using phpbrew. Run following command to relink.
+    Make sure icu4c, bison, openssl, libxml2 is linked before using phpbrew. Run following command to relink.
     $ brew unlink icu4c && brew link icu4c --force
+    $ brew unlink bison && brew link bison --force
     $ brew unlink openssl && brew link openssl --force
     $ brew unlink libxml2 && brew link libxml2 --force
 
