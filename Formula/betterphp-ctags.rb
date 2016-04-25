@@ -1,6 +1,6 @@
 require 'formula'
 
-class BetterPhpCtags < Formula
+class BetterphpCtags < Formula
   homepage 'http://ctags.sourceforge.net/'
   head 'https://github.com/b4n/ctags.git', :branch => 'better-php-parser'
 
