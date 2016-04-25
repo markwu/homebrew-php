@@ -5,6 +5,8 @@ class BetterphpCtags < Formula
   head 'https://github.com/b4n/ctags.git', :branch => 'better-php-parser'
 
   def install
+    system "autoheader"
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-macro-patterns",
                           "--mandir=#{man}",
