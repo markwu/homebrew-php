@@ -3,8 +3,8 @@ require "formula"
 class Composer < Formula
   homepage "http://getcomposer.org"
   head "https://getcomposer.org/composer.phar"
-  url "https://getcomposer.org/download/1.0.0/composer.phar"
-  sha256 "1acc000cf23bd9d19e1590c2edeb44fb915f88d85f1798925ec989c601db0bd6"
+  url "https://getcomposer.org/download/1.0.2/composer.phar"
+  sha256 "264673ccee900b22192605b8c74ecb77c45a5197347edacd142699866c478f4c"
   version "1.0.0"
 
   def install
