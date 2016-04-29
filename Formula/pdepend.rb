@@ -3,7 +3,9 @@ require "formula"
 class Pdepend < Formula
   desc "Static code analysis for PHP"
   homepage "https://pdepend.org/"
-  head "http://static.pdepend.org/php/latest/pdepend.phar"
+  url "http://static.pdepend.org/php/2.2.4/pdepend.phar"
+  sha256 "8e50358ec15a37c542f07bc9521adcb63b5e3a2e7e3ed40b5ed7744172cc337f"
+  version "2.2.4"
 
   def install
     libexec.install "pdepend.phar"

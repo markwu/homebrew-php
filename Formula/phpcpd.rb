@@ -3,7 +3,9 @@ require "formula"
 class Phpcpd < Formula
   desc "Copy/Paste Detector (CPD) for PHP code"
   homepage "https://github.com/sebastianbergmann/phpcpd"
-  head "https://phar.phpunit.de/phpcpd.phar"
+  url "https://phar.phpunit.de/phpcpd-2.0.4.phar"
+  sha256 "491eeac71f1421395648ff079b60fe4858217b70d66eaa07644351f2699c38fe"
+  version "2.0.4"
 
   def install
     libexec.install "phpcpd.phar"

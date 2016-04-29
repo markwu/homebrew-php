@@ -3,7 +3,9 @@ require "formula"
 class Psysh < Formula
   desc "A REPL for PHP"
   homepage " http://psysh.org"
-  head "http://psysh.org/psysh"
+  url "http://psysh.org/psysh"
+  sha256 "9a7ab733eecded5423937e104b41a6d4753e73b6201fe4f411981b2ff0b352ca"
+  version "0.72"
 
   def install
     libexec.install "psysh"

@@ -5,6 +5,7 @@ class BetterphpCtags < Formula
   homepage "http://ctags.sourceforge.net/"
   url "https://downloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
   sha256 "0e44b45dcabe969e0bbbb11e30c246f81abe5d32012db37395eb57d66e9e99c7"
+  version "5.8"
 
   patch :p2, :DATA
 
