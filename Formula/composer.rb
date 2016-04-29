@@ -12,7 +12,7 @@ class Composer < Formula
   end
 
   def caveats; <<-EOS.undent
-    composer is now installed!
+    Composer is now installed!
 
     To verify your installation, please run
     $ composer --version

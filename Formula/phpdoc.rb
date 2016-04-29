@@ -1,7 +1,7 @@
 require "formula"
 
-class Phpdocumentor < Formula
-  desc "phpDocumentor analyzes your code to create great documentation"
+class Phpdoc < Formula
+  desc "Documentation Generator for PHP"
   homepage "https://www.phpdoc.org/"
   head "http://phpdoc.org/phpDocumentor.phar"
 

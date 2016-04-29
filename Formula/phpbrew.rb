@@ -1,6 +1,7 @@
 require "formula"
 
 class Phpbrew < Formula
+  desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
   head "https://github.com/phpbrew/phpbrew/blob/master/phpbrew?raw=true"
 
@@ -29,7 +30,7 @@ class Phpbrew < Formula
   end
 
   def caveats; <<-EOS.undent
-    phpbrew is now installed!
+    PHPBrew is now installed!
 
     Make sure icu4c, bison, openssl, libxml2 is linked before using phpbrew. Run following command to relink.
     $ brew unlink icu4c && brew link icu4c --force
@@ -47,8 +48,8 @@ class Phpbrew < Formula
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 5.6.13 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
-    $ phpbrew switch 5.6.13
+    $ phpbrew install 5.6.20 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
+    $ phpbrew switch 5.6.20
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
 
