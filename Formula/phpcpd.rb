@@ -8,6 +8,7 @@ class Phpcpd < Formula
   version "2.0.4"
 
   def install
+    File.rename("phpcpd-2.0.4.phar", "phpcpd.phar")
     libexec.install "phpcpd.phar"
     (libexec/"phpcpd.phar").chmod 0755
     bin.install_symlink libexec/"phpcpd.phar" => "phpcpd"
