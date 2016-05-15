@@ -40,7 +40,7 @@ class BetterphpGlobal < Formula
     args << "--with-sqlite3" if build.with? "sqlite3"
 
     if build.with? "ctags"
-      args << "--with-exuberant-ctags=#{Formula["markwu/php/ctags"].opt_bin}/ctags"
+      args << "--with-exuberant-ctags=#{Formula["markwu/php/betterphp-ctags"].opt_bin}/ctags"
     end
 
     if build.with? "pygments"
