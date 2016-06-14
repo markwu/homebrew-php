@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url "https://github.com/phpbrew/phpbrew/raw/1.21.6/phpbrew"
-  sha256 "1bda36ab33cf8cc431392bede4aa0fac980eab5a57dc8fec32ce0392907f49b3"
-  version "1.21.6"
+  url "https://github.com/phpbrew/phpbrew/raw/1.22.4/phpbrew"
+  sha256 "cd9e7ca6a3c0d975ec386fc803385b94726843cb44b2247e0695c699cf9e02c6"
+  version "1.22.4"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -34,31 +34,25 @@ class Phpbrew < Formula
   def caveats; <<-EOS.undent
     PHPBrew is now installed!
 
-    Make sure icu4c, bison, openssl, libxml2 is linked before using phpbrew. Run following command to relink.
-    $ brew unlink icu4c && brew link icu4c --force
-    $ brew unlink bison && brew link bison --force
-    $ brew unlink openssl && brew link openssl --force
-    $ brew unlink libxml2 && brew link libxml2 --force
-
     To start using it, please run:
     $ phpbrew init
 
     And also add the following command to your bash/zshrc:
     `source ~/.phpbrew/bashrc`
 
-    Now, you can brew your own php. Take php 5.5.17 for examples:
+    Now, you can brew your own php. Take php 7.0.7 for examples:
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 5.6.20 +default +mysql +gettext=/usr/local/opt/gettext +iconv +ftp +exif +dba +openssl +soap +apxs2=/usr/local/bin/apxs
-    $ phpbrew switch 5.6.20
+    $ phpbrew install 7.0.7 +default +mysql +gettext +iconv +ftp +exif +dba +openssl +soap +apxs
+    $ phpbrew switch 7.0.7
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
 
     By default, homebrew will download formula from bottle (A precompiled binary library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after upgrading your xcode. Try the following snippets.
 
-    $ phpberw rm gd fontconfig freetype jpeg libpng libtiff xz
-    $ phpbrew install gd --build-from-source
+    $ homebrew rm gd fontconfig freetype jpeg libpng libtiff xz
+    $ homebrew install gd --build-from-source
     EOS
   end
 end
