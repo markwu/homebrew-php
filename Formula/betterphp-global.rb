@@ -19,6 +19,7 @@ class BetterphpGlobal < Formula
   option "with-pygments", "Enable Pygments as a plug-in parser (should enable exuberent-ctags too)"
   option "with-sqlite3", "Use SQLite3 API instead of BSD/DB API for making tag files"
 
+  depends_on "markwu/php/betterphp-ctags"
 
   skip_clean "lib/gtags"
 
@@ -39,7 +40,6 @@ class BetterphpGlobal < Formula
     args << "--with-sqlite3" if build.with? "sqlite3"
 
     if build.with? "ctags"
-      depends_on "markwu/php/betterphp-ctags"
       args << "--with-exuberant-ctags=#{Formula["markwu/php/betterphp-ctags"].opt_bin}/ctags"
     end
 
