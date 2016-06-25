@@ -8,8 +8,8 @@ class Phpcs < Formula
   version "2.6.1"
 
   resource "phpcbf" do
-    url "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar"
-    sha256 "b230cc5804dcd17bf2bc52d5eda0cfa60423e3afd68641f8bebea0f698284ec6"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/2.6.1/phpcbf.phar"
+    sha256 "b381189022a2bb020bd927b1e3fd1d4b2f644742fe78d44ca8b4856b2445b606"
   end
 
   def install
