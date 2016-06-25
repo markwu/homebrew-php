@@ -3,9 +3,9 @@ require "formula"
 class Phpcs < Formula
   desc "Check coding standards in PHP, JavaScript and CSS"
   homepage "https://github.com/squizlabs/PHP_CodeSniffer"
-  url "https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar"
-  sha256 "81e8df3aa89f1920994fb818ccbac7ea40251e3dd0473effb41981d209d9b40a"
-  version "2.6.0"
+  url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/2.6.1/phpcs.phar"
+  sha256 "cfa9d7e670682aafdaef4be7c8e1a3f01440f784a8e350a655114070339a6255"
+  version "2.6.1"
 
   resource "phpcbf" do
     url "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar"

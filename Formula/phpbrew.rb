@@ -44,14 +44,21 @@ class Phpbrew < Formula
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 7.0.7 +default +mysql +gettext +iconv +ftp +exif +dba +openssl +soap +apxs
+    $ phpbrew install 7.0.7 +default +mysql +gettext +iconv +ftp +exif +dba +openssl +soap +apxs2
     $ phpbrew switch 7.0.7
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
+    $ phpbrew ext install xdebug
 
-    By default, homebrew will download formula from bottle (A precompiled binary library) if available. But If you ecounter php-gd errors in compile or execution time. Especially after upgrading your xcode. Try the following snippets.
+    By default, homebrew will install packages from bottle first (A precompiled binary package). If you ecounter php-gd errors in compile or execution time, especially after upgrading your xcode. Try the following snippets.
 
-    $ homebrew rm gd fontconfig freetype jpeg libpng libtiff xz
+    Remove GD and dependency
+    $ homebrew uninstall gd fontconfig freetype jpeg libpng libtiff xz
+
+    Install GD from bottle again
+    $ homebrew install gd
+
+    Or build GD from source
     $ homebrew install gd --build-from-source
     EOS
   end

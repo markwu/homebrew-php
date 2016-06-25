@@ -4,8 +4,8 @@ class PhpCsFixer < Formula
   desc "PHP Coding Standards Fixer"
   homepage "http://cs.sensiolabs.org/"
   url "http://get.sensiolabs.org/php-cs-fixer.phar"
-  sha256 "245050d32d6e0f9e252e433bd681ec4cb84d75ae4325b209e94c7bc4639a03b1"
-  version "1.1.2"
+  sha256 "a7ad2a24de3fd933bd803cb64b75788520412875c864e6bf2b31ae544edad39e"
+  version "1.11.4"
 
   def install
     libexec.install "php-cs-fixer.phar"
