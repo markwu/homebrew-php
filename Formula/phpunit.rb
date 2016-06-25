@@ -8,7 +8,7 @@ class Phpunit < Formula
   version "5.4.6"
 
   def install
-    File.rename("phpunit-5.3.4.phar", "phpunit.phar")
+    File.rename("phpunit-5.4.6.phar", "phpunit.phar")
     libexec.install "phpunit.phar"
     (libexec/"phpunit.phar").chmod 0755
     bin.install_symlink libexec/"phpunit.phar" => "phpunit"
