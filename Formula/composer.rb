@@ -3,9 +3,9 @@ require "formula"
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "http://getcomposer.org"
-  url "https://getcomposer.org/download/1.1.2/composer.phar"
-  sha256 "7af2409080619e2ba98e78d7675710c23acf2ccf088d4439a4f79c33ed85c505"
-  version "1.1.2"
+  url "https://getcomposer.org/download/1.1.3/composer.phar"
+  sha256 "4349ef555c8478b8fe148b10957bc40d696ce7b8cdeb7d50d3d684a854dca5cc"
+  version "1.1.3"
 
   def install
     libexec.install "composer.phar"
