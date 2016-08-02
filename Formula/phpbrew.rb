@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url "https://github.com/phpbrew/phpbrew/raw/1.22.4/phpbrew"
-  sha256 "cd9e7ca6a3c0d975ec386fc803385b94726843cb44b2247e0695c699cf9e02c6"
-  version "1.22.4"
+  url "https://github.com/phpbrew/phpbrew/raw/1.22.5/phpbrew"
+  sha256 "84301c766146bdc04f10e8cb0e8c2aefeaf943b0bea24ca42318a8f12c0aee1b"
+  version "1.22.5"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -40,15 +40,21 @@ class Phpbrew < Formula
     And also add the following command to your bash/zshrc:
     `source ~/.phpbrew/bashrc`
 
-    Now, you can brew your own php. Take php 7.0.7 for examples:
+    Now, you can brew your own php. Take php 7.0.9 for examples:
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 7.0.7 +default +mysql +gettext +iconv +ftp +exif +dba +openssl +soap +apxs2
-    $ phpbrew switch 7.0.7
+    $ phpbrew install 7.0.9 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2
+    $ phpbrew switch 7.0.9
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
     $ phpbrew ext install xdebug
+
+    or, you can brew gd and opcache extensions with php core together
+
+    $ phpbrew install 7.0.9 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2 +gd +opcache -- --with-gd=shared
+
+    NOTE:
 
     By default, homebrew will install packages from bottle first (A precompiled binary package). If you ecounter php-gd errors in compile or execution time, especially after upgrading your xcode. Try the following snippets.
 
