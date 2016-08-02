@@ -3,9 +3,9 @@ require "formula"
 class PhpCsFixer < Formula
   desc "PHP Coding Standards Fixer"
   homepage "http://cs.sensiolabs.org/"
-  url "http://get.sensiolabs.org/php-cs-fixer.phar"
-  sha256 "a7ad2a24de3fd933bd803cb64b75788520412875c864e6bf2b31ae544edad39e"
-  version "1.11.4"
+  url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v1.11.6/php-cs-fixer.phar"
+  sha256 "ef5ec083b77f2a741a00abd7da93e6646264328deb191af4b827f1a4ff26ea85"
+  version "1.11.6"
 
   def install
     libexec.install "php-cs-fixer.phar"
