@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url "https://github.com/phpbrew/phpbrew/raw/1.22.5/phpbrew"
-  sha256 "84301c766146bdc04f10e8cb0e8c2aefeaf943b0bea24ca42318a8f12c0aee1b"
-  version "1.22.5"
+  url "https://github.com/phpbrew/phpbrew/raw/1.22.6/phpbrew"
+  sha256 "efe2fc91ec92f1ff00fb37fa7d8fc7a14979ac81ed23c239cc6961e05e18d970"
+  version "1.22.6"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -44,15 +44,15 @@ class Phpbrew < Formula
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 7.0.9 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2
-    $ phpbrew switch 7.0.9
+    $ phpbrew install 7.1.1 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2
+    $ phpbrew switch 7.1.1
     $ phpbrew ext install gd
     $ phpbrew ext install opcache
     $ phpbrew ext install xdebug
 
     or, you can brew gd and opcache extensions with php core together
 
-    $ phpbrew install 7.0.9 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2 +gd +opcache -- --with-gd=shared
+    $ phpbrew install 7.1.1 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2 +gd +opcache -- --with-gd=shared
 
     NOTE:
 
