@@ -3,7 +3,7 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url ":https://github.com/phpbrew/phpbrew/raw/1.22.7/phpbrew"
+  url "https://github.com/phpbrew/phpbrew/raw/1.22.7/phpbrew"
   sha256 "4433872ac70ace6ab73ae1c483aa13951c962b6a6727c11bce5c6325e04fec7c"
   version "1.22.7"
 
