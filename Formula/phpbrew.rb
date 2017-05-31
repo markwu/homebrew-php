@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url "https://github.com/phpbrew/phpbrew/raw/1.22.6/phpbrew"
-  sha256 "efe2fc91ec92f1ff00fb37fa7d8fc7a14979ac81ed23c239cc6961e05e18d970"
-  version "1.22.6"
+  url ":https://github.com/phpbrew/phpbrew/raw/1.22.7/phpbrew"
+  sha256 "4433872ac70ace6ab73ae1c483aa13951c962b6a6727c11bce5c6325e04fec7c"
+  version "1.22.7"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -40,19 +40,17 @@ class Phpbrew < Formula
     And also add the following command to your bash/zshrc:
     `source ~/.phpbrew/bashrc`
 
-    Now, you can brew your own php. Take php 7.0.9 for examples:
+    Now, you can brew your own php. Take php 7.1.5 for examples:
 
     $ phpbrew init
     $ phpbrew lookup-prefix homebrew
-    $ phpbrew install 7.1.1 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2
-    $ phpbrew switch 7.1.1
-    $ phpbrew ext install gd
-    $ phpbrew ext install opcache
-    $ phpbrew ext install xdebug
+    $ phpbrew install 7.1.5 +default +dbs +dba +openssl +apxs2
+    $ phpbrew switch 7.1.5
+    $ phpbrew ext install gettext -- --with-gettext=/usr/local/opt/gettext && phpbrew ext install iconv && phpbrew ext install ftp -- --with-openssl-dir=/usr/local/opt/openssl && phpbrew ext install exif && phpbrew ext install soap && phpbrew ext install gd -- --with-gd=shared && phpbrew ext install opcache && phpbrew ext install xdebug
 
-    or, you can brew gd and opcache extensions with php core together
+    or, you can brew most extensions with php core together
 
-    $ phpbrew install 7.1.1 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2 +gd +opcache -- --with-gd=shared
+    $ phpbrew install 7.1.5 +default +dbs +dba +gettext +iconv +ftp +exif +openssl +soap +apxs2 +opcache +gd=shared
 
     NOTE:
 
