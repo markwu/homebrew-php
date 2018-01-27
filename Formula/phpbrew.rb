@@ -31,7 +31,7 @@ class Phpbrew < Formula
     bin.install_symlink  libexec/"phpbrew"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     PHPBrew is now installed!
 
     To start using it, please run:

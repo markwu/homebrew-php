@@ -13,7 +13,7 @@ class Composer < Formula
     bin.install_symlink libexec/"composer.phar" => "composer"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Composer is now installed!
 
     To verify your installation, please run
