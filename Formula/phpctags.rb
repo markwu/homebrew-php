@@ -14,7 +14,7 @@ class Phpctags < Formula
     bin.install_symlink libexec/"phpctags.phar" => "phpctags"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     phpctags is now installed!
 
     To verify your installation, please run
