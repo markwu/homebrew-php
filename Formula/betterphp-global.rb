@@ -3,15 +3,19 @@ require 'formula'
 class BetterphpGlobal < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "http://ftpmirror.gnu.org/global/global-6.5.4.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/global/global-6.5.4.tar.gz"
-  sha256 "af16e0a686a46f759156cb685e25f345680703f43f93af1ce8d834caaf541da6"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
+  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
+  revision 1
 
   head do
     url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    ## gperf is provided by OSX Command Line Tools.
     depends_on "libtool" => :build
   end
 
@@ -23,9 +27,9 @@ class BetterphpGlobal < Formula
 
   skip_clean "lib/gtags"
 
-  resource "pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.tar.gz"
-    sha256 "13a0ef5fafd7b16cf995bc28fe7aab0780dab1b2fda0fc89e033709af8b8a47b"
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
+    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
   end
 
   def install
@@ -44,9 +48,9 @@ class BetterphpGlobal < Formula
     end
 
     if build.with? "pygments"
-      ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
+      ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
       pygments_args = %W[build install --prefix=#{libexec}]
-      resource("pygments").stage { system "python", "setup.py", *pygments_args }
+      resource("Pygments").stage { system "python", "setup.py", *pygments_args }
     end
 
     system "./configure", *args
