@@ -19,7 +19,7 @@ class UniversalGlobal < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-ctags", "Enable Universal Ctags as a plug-in parser"
+  option "with-universal-ctags", "Enable Universal Ctags as a plug-in parser"
   option "with-pygments", "Enable Pygments as a plug-in parser (should enable universal-ctags too)"
   option "with-sqlite3", "Use SQLite3 API instead of BSD/DB API for making tag files"
 
@@ -43,7 +43,7 @@ class UniversalGlobal < Formula
 
     args << "--with-sqlite3" if build.with? "sqlite3"
 
-    if build.with? "ctags"
+    if build.with? "universal-ctags"
       args << "--with-ctags=#{Formula["universal-ctags/universal-ctags/universal-ctags"].opt_bin}/ctags"
     end
 
