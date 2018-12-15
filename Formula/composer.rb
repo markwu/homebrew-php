@@ -3,8 +3,8 @@ require "formula"
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "http://getcomposer.org"
-  url "https://getcomposer.org/download/1.6.3/composer.phar"
-  sha256 "52cb7bbbaee720471e3b34c8ae6db53a38f0b759c06078a80080db739e4dcab6"
+  url "https://getcomposer.org/download/1.8.0/composer.phar"
+  sha256 "0901a84d56f6d6ae8f8b96b0c131d4f51ccaf169d491813d2bcedf2a6e4cefa6"
   version "1.6.3"
 
   def install
