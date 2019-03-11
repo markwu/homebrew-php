@@ -3,10 +3,9 @@ require 'formula'
 class UniversalGlobal < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
-  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
-  revision 1
+  url "https://ftp.gnu.org/gnu/global/global-6.6.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.3.tar.gz"
+  sha256 "cbee98ef6c1b064bc5b062d14a6d94dca67289e8374860817057db7688bc651c"
 
   head do
     url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
@@ -19,11 +18,8 @@ class UniversalGlobal < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-universal-ctags", "Enable Universal Ctags as a plug-in parser"
-  option "with-pygments", "Enable Pygments as a plug-in parser (should enable universal-ctags too)"
-  option "with-sqlite3", "Use SQLite3 API instead of BSD/DB API for making tag files"
-
-  depends_on "universal-ctags/universal-ctags/universal-ctags" => :optional
+  depends_on "universal-ctags/universal-ctags/universal-ctags"
+  depends_on "python"
 
   skip_clean "lib/gtags"
 
@@ -35,30 +31,22 @@ class UniversalGlobal < Formula
   def install
     system "sh", "reconf.sh" if build.head?
 
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    pygments_args = %W[build install --prefix=#{libexec}]
+    resource("Pygments").stage { system "python3", "setup.py", *pygments_args }
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --with-exuberant-ctags=#{Formula["universal-ctags/universal-ctags/universal-ctags"].opt_bin}/ctags
     ]
-
-    args << "--with-sqlite3" if build.with? "sqlite3"
-
-    if build.with? "universal-ctags"
-      args << "--with-ctags=#{Formula["universal-ctags/universal-ctags/universal-ctags"].opt_bin}/ctags"
-    end
-
-    if build.with? "pygments"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-      pygments_args = %W[build install --prefix=#{libexec}]
-      resource("Pygments").stage { system "python", "setup.py", *pygments_args }
-    end
 
     system "./configure", *args
     system "make", "install"
 
-    if build.with? "pygments"
-      bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    end
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 
