@@ -3,9 +3,9 @@ require "formula"
 class Phpbrew < Formula
   desc "Brew & manage PHP versions in pure PHP at HOME"
   homepage "https://github.com/phpbrew/phpbrew"
-  url "https://github.com/phpbrew/phpbrew/raw/1.23.1/phpbrew"
-  sha256 "c512a0ab0c28b1e90622810f959d5e9481fa0c2871a8d0ba0804b79b97f02eb5"
-  version "1.23.1"
+  url "https://github.com/phpbrew/phpbrew/raw/1.25.1/phpbrew"
+  sha256 "569ffa9583cff4a17e1128d81b041789a5028ac432646734dea5b8ec43d3d283"
+  version "1.25.1"
 
   depends_on "autoconf"
   depends_on "automake"
