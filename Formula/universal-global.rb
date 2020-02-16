@@ -3,9 +3,9 @@ require 'formula'
 class UniversalGlobal < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.3.tar.gz"
-  sha256 "cbee98ef6c1b064bc5b062d14a6d94dca67289e8374860817057db7688bc651c"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
+  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
 
   head do
     url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
@@ -19,13 +19,13 @@ class UniversalGlobal < Formula
   end
 
   depends_on "universal-ctags/universal-ctags/universal-ctags"
-  depends_on "python"
+  depends_on "python@3.8"
 
   skip_clean "lib/gtags"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
+    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
   end
 
   def install
