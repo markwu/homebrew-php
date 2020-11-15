@@ -8,7 +8,7 @@ class UniversalGlobal < Formula
   sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
 
   head do
-    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
+    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", using: :cvs
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -19,7 +19,13 @@ class UniversalGlobal < Formula
   end
 
   depends_on "universal-ctags/universal-ctags/universal-ctags"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "libtool" => :build
+  end
 
   skip_clean "lib/gtags"
 
@@ -43,10 +49,13 @@ class UniversalGlobal < Formula
       --with-exuberant-ctags=#{Formula["universal-ctags/universal-ctags/universal-ctags"].opt_bin}/ctags
     ]
 
+    # Fix detection of realpath() with Xcode >= 12
+    ENV.append_to_cflags "-Wno-error=implicit-function-declaration"
+
     system "./configure", *args
     system "make", "install"
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 
